@@ -2,7 +2,7 @@ import {useState} from "react";
 import {supabase} from "../lib/supabaseClient";
 import {useNavigate} from "react-router-dom";
 
-export default function TestimoniForm({onSubmitSuccess}) {
+export default function TestimoniForm() {
   const [nama, setNama] = useState("");
   const [isi, setIsi] = useState("");
   const [loading, setLoading] = useState(false);
@@ -28,10 +28,12 @@ export default function TestimoniForm({onSubmitSuccess}) {
       setNama("");
       setIsi("");
 
+      // Navigasi ke halaman utama
       navigate("/", {
         replace: true,
       });
 
+      // Scroll ke testimoni section
       setTimeout(() => {
         const el = document.getElementById("testimoni");
         if (el) el.scrollIntoView({behavior: "smooth"});

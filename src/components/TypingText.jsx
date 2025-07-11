@@ -5,11 +5,8 @@ function TypingText({text = "", speed = 100, className = ""}) {
 
   useEffect(() => {
     let i = 0;
-
-    // Reset teks sebelum mulai
     setDisplayedText("");
 
-    // Cegah kalau text bukan string
     if (typeof text !== "string" || text.length === 0) return;
 
     const interval = setInterval(() => {
@@ -25,10 +22,10 @@ function TypingText({text = "", speed = 100, className = ""}) {
   }, [text, speed]);
 
   return (
-    <h2 className={`font-bold ${className}`}>
+    <span className={`font-bold ${className}`}>
       {displayedText}
       <span className="animate-pulse">|</span>
-    </h2>
+    </span>
   );
 }
 
