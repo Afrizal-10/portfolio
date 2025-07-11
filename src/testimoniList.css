@@ -1,0 +1,37 @@
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation-duration: 30s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+.marquee-left {
+  animation-name: marquee-left;
+}
+
+.marquee-right {
+  animation-name: marquee-right;
+}
+
+@keyframes marquee-left {
+  0% {
+    transform: translateX(0%);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@keyframes marquee-right {
+  0% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.marquee-item {
+  flex-shrink: 0;
+}
