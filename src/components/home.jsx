@@ -1,4 +1,4 @@
-import TypingText from "./typingText";
+import TypingText from "./TypingText";
 import {FaInstagram, FaLinkedin, FaGithub} from "react-icons/fa";
 
 function Home() {
