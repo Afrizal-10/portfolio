@@ -1,21 +1,23 @@
-import React, {useState, useEffect} from "react";
+import {useState, useEffect} from "react";
 
 function TypingText({text = "", speed = 100, className = ""}) {
   const [displayedText, setDisplayedText] = useState("");
 
   useEffect(() => {
-    let i = 0;
+    if (!text) return;
+
     setDisplayedText("");
+    let interval = setInterval(() => {
+      setDisplayedText((prev) => {
+        const nextChar = text.charAt(prev.length);
+        const nextText = prev + nextChar;
 
-    if (typeof text !== "string" || text.length === 0) return;
+        if (nextText.length === text.length) {
+          clearInterval(interval);
+        }
 
-    const interval = setInterval(() => {
-      if (i < text.length) {
-        setDisplayedText((prev) => prev + text.charAt(i));
-        i++;
-      } else {
-        clearInterval(interval);
-      }
+        return nextText;
+      });
     }, speed);
 
     return () => clearInterval(interval);

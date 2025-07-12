@@ -97,7 +97,7 @@ function About() {
                     key={index}
                     className="flex items-center text-gray-800 gap-2 whitespace-nowrap overflow-hidden"
                     data-aos="fade-up"
-                    data-aos-delay={index * 100}
+                    data-aos-delay={index * 150}
                   >
                     <span className="text-xl bg-gray-900 text-white p-1 rounded shrink-0">
                       {item.icon}
@@ -108,7 +108,7 @@ function About() {
                 ))}
               </div>
 
-              <div className="mt-4" data-aos="fade-up" data-aos-delay="100">
+              <div className="mt-4" data-aos="fade-up" data-aos-delay="900">
                 <a
                   href="/path-ke-cv.pdf"
                   download

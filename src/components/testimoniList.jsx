@@ -43,7 +43,7 @@ export default function TestimoniList({limit = 10, direction = "left"}) {
         {marqueeItems.map((item, index) => (
           <div
             key={index}
-            className="marquee-item bg-gray-50 border shadow rounded-lg px-4 py-3 mx-2 min-w-[250px] max-w-xs"
+            className="marquee-item bg-gray-50 border shadow rounded-lg px-4 py-3 mx-2 min-w-[250px] max-w-xs transition transform hover:-translate-y-1 hover:shadow-lg active:scale-95 cursor-pointer"
           >
             <div className="flex items-center gap-2 mb-2 text-gray-800">
               <FaUserCircle className="text-xl text-gray-600" />

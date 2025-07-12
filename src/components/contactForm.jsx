@@ -1,16 +1,15 @@
 import {useRef, useState} from "react";
 import emailjs from "@emailjs/browser";
 import {FaPaperPlane} from "react-icons/fa";
+import {alertError, alertSuccess} from "../lib/alert";
 
 export default function ContactForm() {
   const form = useRef();
   const [loading, setLoading] = useState(false);
-  const [status, setStatus] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
     setLoading(true);
-    setStatus("");
 
     emailjs
       .sendForm(
@@ -19,16 +18,14 @@ export default function ContactForm() {
         form.current,
         import.meta.env.VITE_EMAILJS_PUBLIC_KEY
       )
-      .then(
-        () => {
-          setStatus("Pesan berhasil dikirim!");
-          form.current.reset();
-        },
-        (error) => {
-          console.error("FAILED...", error);
-          setStatus("Gagal mengirim pesan. Coba lagi.");
-        }
-      )
+      .then(() => {
+        alertSuccess("Terkirim!", "Pesan kamu sudah dikirim.");
+        form.current.reset();
+      })
+      .catch((error) => {
+        console.error("FAILED...", error);
+        alertError("Gagal Mengirim", "Silakan coba lagi.");
+      })
       .finally(() => setLoading(false));
   };
 
@@ -45,7 +42,7 @@ export default function ContactForm() {
         <input
           type="text"
           name="user_name"
-          className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-graya-800"
+          className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-gray-800"
           placeholder="Nama lengkap"
           required
         />
@@ -76,12 +73,6 @@ export default function ContactForm() {
           required
         ></textarea>
       </div>
-
-      {status && (
-        <div className="text-sm text-gray-800 bg-blue-100 p-2 rounded">
-          {status}
-        </div>
-      )}
 
       <button
         type="submit"
