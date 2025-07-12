@@ -12,9 +12,13 @@ function Home() {
   }, []);
 
   return (
-    <section id="home" className="w-full bg-white py-16 mt-16">
-      <div className="max-w-7xl mx-auto flex flex-col-reverse md:flex-row items-center justify-between gap-8 px-6 md:px-16">
-        <div className="flex-1 text-center md:text-left" data-aos="fade-right">
+    <section id="home" className="w-full bg-white pt-0 md:pt-16 mt-0">
+      <div className="w-full flex flex-col-reverse md:flex-row items-center justify-between gap-8">
+        {/* Kiri: Teks dan Sosial Media */}
+        <div
+          className="w-full md:w-1/2 px-6 md:px-16 text-center md:text-left"
+          data-aos="fade-right"
+        >
           <h1 className="text-4xl md:text-5xl font-bold mb-2">
             <TypingText text="Hi, I'm Afrizal" speed={100} />
           </h1>
@@ -61,12 +65,14 @@ function Home() {
           </div>
         </div>
 
-        {/* Gambar kanan */}
+        {/* Kanan: Lanyard tampil penuh */}
         <div
-          className="flex-1 flex justify-center md:justify-end"
+          className="w-full md:w-1/2 flex justify-center md:justify-end bg-white"
           data-aos="fade-left"
         >
-          <Lanyard position={[0, 0, 13]} gravity={[0, -40, 0]} />
+          <div className="w-full h-full">
+            <Lanyard position={[0, 0, 13]} gravity={[0, -40, 0]} />
+          </div>
         </div>
       </div>
     </section>
