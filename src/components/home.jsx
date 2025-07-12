@@ -4,6 +4,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import {useEffect} from "react";
 import SwitchingText from "./SwitchingText";
+import Lanyard from "./Lanyard/Lanyard";
 
 function Home() {
   useEffect(() => {
@@ -65,11 +66,7 @@ function Home() {
           className="flex-1 flex justify-center md:justify-end"
           data-aos="fade-left"
         >
-          <img
-            src="/profile.jpg"
-            alt="Profile"
-            className="w-64 h-64 object-cover rounded-full shadow-lg"
-          />
+          <Lanyard position={[0, 0, 13]} gravity={[0, -40, 0]} />
         </div>
       </div>
     </section>
