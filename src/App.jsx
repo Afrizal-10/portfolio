@@ -1,16 +1,59 @@
 import {Routes, Route} from "react-router-dom";
-import Navbar from "./navbar";
 import Home from "./components/home";
 import About from "./components/about";
 import Project from "./components/project";
-import Testimoni from "./components/testimoni"; // Sudah termasuk modal form di dalamnya
+import Testimoni from "./components/testimoni";
 import Contact from "./components/contact";
 import Footer from "./footer";
 
+import {
+  VscHome,
+  VscArchive,
+  VscAccount,
+  VscSettingsGear,
+  VscComment,
+} from "react-icons/vsc";
+
+import Dock from "./components/Dock/Dock";
+
 function App() {
+  const handleScrollTo = (id) => {
+    const section = document.querySelector(id);
+    if (section) {
+      section.scrollIntoView({behavior: "smooth"});
+    }
+  };
+
+  const items = [
+    {
+      icon: <VscHome size={18} color="white" />,
+      label: "Home",
+      onClick: () => handleScrollTo("#home"),
+    },
+    {
+      icon: <VscAccount size={18} color="white" />,
+      label: "About",
+      onClick: () => handleScrollTo("#about"),
+    },
+    {
+      icon: <VscArchive size={18} color="white" />,
+      label: "Projects",
+      onClick: () => handleScrollTo("#projects"),
+    },
+    {
+      icon: <VscComment size={18} color="white" />,
+      label: "Testimoni",
+      onClick: () => handleScrollTo("#testimoni"),
+    },
+    {
+      icon: <VscSettingsGear size={18} color="white" />,
+      label: "Contact",
+      onClick: () => handleScrollTo("#contact"),
+    },
+  ];
+
   return (
-    <div className="bg-gray-50 min-h-screen">
-      <Navbar />
+    <div className="bg-gray-50 min-h-screen pb-24 relative">
       <Routes>
         <Route
           path="/"
@@ -27,6 +70,8 @@ function App() {
         />
         <Route path="/testimoni" element={<Testimoni />} />
       </Routes>
+
+      <Dock items={items} />
     </div>
   );
 }

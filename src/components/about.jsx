@@ -6,6 +6,7 @@ import {MdEmail} from "react-icons/md";
 import {useEffect} from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import ProfileCard from "./ProfileCard/ProfileCard";
 
 function About() {
   useEffect(() => {
@@ -32,11 +33,7 @@ function About() {
             className="flex justify-center md:justify-start w-full md:w-auto"
             data-aos="fade-up"
           >
-            <img
-              src="/profile.jpg"
-              alt="foto"
-              className="w-[250px] md:w-[350px] rounded shadow-lg"
-            />
+            <ProfileCard />
           </div>
 
           <div
