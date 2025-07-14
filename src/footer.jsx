@@ -3,6 +3,8 @@ import {Link} from "react-router-dom";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import {useEffect} from "react";
+import {Calendar} from "./components/ui/calendar";
+import {format} from "date-fns";
 
 export default function Footer() {
   useEffect(() => {
@@ -10,14 +12,13 @@ export default function Footer() {
   }, []);
   return (
     <footer className="bg-gray-900 text-white py-10" data-aos="fade-up">
-      <div className="max-w-7xl mx-auto px-6 md:px-16 grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="grid grid-cols-1 md:grid-cols-4 gap-8 p-8">
         <div>
           <h3 className="text-2xl font-bold mb-4">Adi Juliyanto Afrizal</h3>
           <p className="text-gray-400 text-sm">
             Membangun solusi digital dengan semangat dan ketelitian.
           </p>
         </div>
-
         <div data-aos="fade-up">
           <h4 className="font-semibold mb-3">Navigasi</h4>
           <ul className="space-y-2 text-gray-300 text-sm">
@@ -43,7 +44,6 @@ export default function Footer() {
             </li>
           </ul>
         </div>
-
         {/* Sosial Media */}
         <div data-aos="fade-up">
           <h4 className="font-semibold mb-3">Terhubung</h4>
@@ -76,6 +76,23 @@ export default function Footer() {
             >
               <FaDiscord className="hover:text-indigo-400" />
             </a>
+          </div>
+        </div>
+        {/* calender */}
+        <div data-aos="fade-up" className="self-start">
+          <div className="p-3 bg-white text-black rounded-lg shadow-md max-w-xs w-full">
+            <h2 className="text-center font-semibold text-sm mb-2">
+              Kalender Hari Ini
+            </h2>
+            <Calendar
+              mode="single"
+              selected={new Date()}
+              onSelect={() => {}}
+              className="rounded-lg border"
+            />
+            <p className="text-center mt-2 text-sm text-gray-600">
+              Hari ini: {format(new Date(), "EEEE, dd MMMM yyyy")}
+            </p>
           </div>
         </div>
       </div>

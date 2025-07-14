@@ -1,10 +1,11 @@
-import {FaReact, FaCss3Alt, FaLaravel, FaGithub} from "react-icons/fa";
+import {FaReact, FaLaravel} from "react-icons/fa";
 import {RiNextjsFill, RiTailwindCssFill} from "react-icons/ri";
 import {SiPrisma, SiMysql, SiTypescript} from "react-icons/si";
 import {BiLogoPostgresql} from "react-icons/bi";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import {useEffect, useState} from "react";
+import MagicBento from "./MagicBento/MagicBento";
 
 function Project() {
   const [activeTab, setActiveTab] = useState("projects");
@@ -21,6 +22,7 @@ function Project() {
         <RiTailwindCssFill className="text-sky-400" />,
       ],
       repo: "https://github.com/Afrizal-10/booking-hotel",
+      color: "#060010",
     },
     {
       foto: "/project2.jpg",
@@ -115,86 +117,10 @@ function Project() {
           purpose through code.
         </p>
 
-        {/* Project Card */}
-        {activeTab === "projects" && (
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
-            {projects.map((project, index) => (
-              <div
-                key={index}
-                data-aos="fade-up"
-                data-aos-delay={index * 100}
-                className="bg-white rounded-xl shadow-lg overflow-hidden transition transform hover:-translate-y-1 hover:shadow-xl"
-              >
-                <img
-                  src={project.foto}
-                  alt={project.title}
-                  className="w-full h-48 object-cover"
-                />
-                <div className="p-6">
-                  <h3 className="text-xl font-semibold text-gray-800">
-                    {project.title}
-                  </h3>
-                  <p className="text-gray-600 mt-2">{project.desc}</p>
+        {/* Project Card pakai MagicBento */}
+        {activeTab === "projects" && <MagicBento projects={projects} />}
 
-                  <div className="flex flex-wrap items-center gap-3 mt-4 text-xl sm:text-2xl">
-                    <p className="font-medium text-gray-700">Tech:</p>
-                    {project.icons.map((Icon, i) => (
-                      <span
-                        key={i}
-                        className="bg-gray-100 p-2 rounded shadow text-xl text-gray-700"
-                      >
-                        {Icon}
-                      </span>
-                    ))}
-                  </div>
-
-                  {project.repo && (
-                    <div className="mt-4">
-                      <a
-                        href={project.repo}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="inline-flex items-center gap-2 bg-gray-100 text-gray-800 px-3 py-2 rounded shadow hover:bg-gray-200 transition text-sm font-medium"
-                      >
-                        <FaGithub className="text-lg" />
-                        View on GitHub →
-                      </a>
-                    </div>
-                  )}
-
-                  {(project.repoFE || project.repoBE) && (
-                    <div className="mt-4 flex flex-col sm:flex-row gap-3">
-                      {project.repoFE && (
-                        <a
-                          href={project.repoFE}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 bg-gray-100 text-gray-800 px-3 py-2 rounded shadow hover:bg-gray-200 transition text-sm font-medium"
-                        >
-                          <FaGithub className="text-lg" />
-                          FE GitHub →
-                        </a>
-                      )}
-                      {project.repoBE && (
-                        <a
-                          href={project.repoBE}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center gap-2 bg-gray-100 text-gray-800 px-3 py-2 rounded shadow hover:bg-gray-200 transition text-sm font-medium"
-                        >
-                          <FaGithub className="text-lg" />
-                          BE GitHub →
-                        </a>
-                      )}
-                    </div>
-                  )}
-                </div>
-              </div>
-            ))}
-          </div>
-        )}
-
-        {/* Certificate Card */}
+        {/* Certificate Card tetap pakai grid biasa */}
         {activeTab === "certificates" && (
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-8">
             {certificates.map((cert, index) => (
