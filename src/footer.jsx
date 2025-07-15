@@ -79,7 +79,7 @@ export default function Footer() {
           </div>
         </div>
         {/* calender */}
-        <div data-aos="fade-up" className="self-start">
+        <div data-aos="fade-up" className=" mx-auto md:mx-0 md:self-start">
           <div className="p-3 bg-white text-black rounded-lg shadow-md max-w-xs w-full">
             <h2 className="text-center font-semibold text-sm mb-2">
               Kalender Hari Ini

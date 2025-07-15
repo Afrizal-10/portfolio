@@ -14,7 +14,6 @@ function Home() {
   return (
     <section id="home" className="w-full bg-white pt-0 md:pt-16 mt-0">
       <div className="w-full flex flex-col-reverse md:flex-row items-center justify-between gap-8">
-        {/* Kiri: Teks dan Sosial Media */}
         <div
           className="w-full md:w-1/2 px-6 md:px-16 text-center md:text-left"
           data-aos="fade-right"

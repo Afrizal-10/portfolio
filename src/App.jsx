@@ -15,6 +15,7 @@ import {
 } from "react-icons/vsc";
 
 import Dock from "./components/Dock/Dock";
+import VelocityAnimation from "./components/velocity";
 
 function App() {
   const handleScrollTo = (id) => {
@@ -53,13 +54,14 @@ function App() {
   ];
 
   return (
-    <div className="bg-gray-50 min-h-screen pb-24 relative">
+    <div className="bg-gray-50 min-h-screen relative">
       <Routes>
         <Route
           path="/"
           element={
             <>
               <Home />
+              <VelocityAnimation />
               <About />
               <Project />
               <Testimoni />

@@ -1,7 +1,7 @@
 .marquee-track {
   display: flex;
   width: max-content;
-  animation-duration: 30s;
+  animation-duration: 70s;
   animation-timing-function: linear;
   animation-iteration-count: infinite;
 }
