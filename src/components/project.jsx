@@ -1,7 +1,8 @@
-import {FaReact, FaLaravel} from "react-icons/fa";
+import {FaReact, FaLaravel, FaNodeJs} from "react-icons/fa";
 import {RiNextjsFill, RiTailwindCssFill} from "react-icons/ri";
-import {SiPrisma, SiMysql, SiTypescript} from "react-icons/si";
+import {SiPrisma, SiMysql, SiTypescript, SiExpress} from "react-icons/si";
 import {BiLogoPostgresql} from "react-icons/bi";
+import {DiMongodb} from "react-icons/di";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import {useEffect, useState} from "react";
@@ -67,6 +68,19 @@ function Project() {
       desc: "A responsive AI chatbot built with React and integrated with the Groq API for fast, intelligent responses. It supports natural language queries and delivers real-time answers through an interactive chat interface.",
       icons: [<FaReact className="text-blue-500" />],
       repo: "https://github.com/Afrizal-10/reactGroqAI",
+    },
+    {
+      foto: "/project6.png",
+      title: "CRUD MERN",
+      desc: "This project is a simple MERN Stack CRUD application that allows users to manage student data through a React frontend and an Express backend connected to MongoDB.",
+      icons: [
+        <DiMongodb className="text-green-500" />,
+        <SiExpress className="text-black" />,
+        <FaReact className="text-blue-500" />,
+        <FaNodeJs className="text-green-600" />,
+      ],
+      repoFE: "https://github.com/Afrizal-10/frontend-crud-mern",
+      repoBE: "https://github.com/Afrizal-10/backend-crud-mern",
     },
   ];
 
