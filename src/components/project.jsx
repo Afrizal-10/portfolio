@@ -82,6 +82,19 @@ function Project() {
       repoFE: "https://github.com/Afrizal-10/frontend-crud-mern",
       repoBE: "https://github.com/Afrizal-10/backend-crud-mern",
     },
+    {
+      foto: "/project7.png",
+      title: "Simple Invoice Generator",
+      desc: "Simple Invoice Generator is a web app to easily manage and generate invoices. Built with React and Express, it features authentication, PDF export, and a responsive UI powered by Tailwind CSS.",
+      icons: [
+        <DiMongodb className="text-green-500" />,
+        <SiExpress className="text-black" />,
+        <FaReact className="text-blue-500" />,
+        <FaNodeJs className="text-green-600" />,
+      ],
+      repoFE: "https://github.com/Afrizal-10/frontend-sig",
+      repoBE: "https://github.com/Afrizal-10/backend-sig",
+    },
   ];
 
   const certificates = [
