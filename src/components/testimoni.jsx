@@ -1,6 +1,5 @@
 import {useState, useEffect} from "react";
 import TestimoniList from "./testimoniList";
-import {supabase} from "../lib/supabaseClient";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import {alertError, alertSuccess} from "../lib/alert";
@@ -21,21 +20,28 @@ function Testimoni() {
     setLoading(true);
     setErrorMsg("");
 
-    const {error} = await supabase.from("testimoni_app").insert([
-      {
-        name: nama,
-        message: isi,
-      },
-    ]);
+    try {
+      const res = await fetch("/api/testimoni", {
+        method: "POST",
+        headers: {"Content-Type": "application/json"},
+        body: JSON.stringify({
+          name: nama, // <-- harus 'name'
+          message: isi, // <-- harus 'message'
+        }),
+      });
 
-    if (error) {
-      alertError("Gagal mengirim testimoni. Coba lagi.");
-      console.error(error);
-    } else {
+      if (!res.ok) {
+        throw new Error("Gagal mengirim testimoni");
+      }
+
       setNama("");
       setIsi("");
       setShowForm(false);
       alertSuccess("Terkirim!", "Terima kasih atas testimoninya!");
+    } catch (err) {
+      console.error(err);
+      setErrorMsg("Gagal mengirim testimoni. Coba lagi.");
+      alertError("Gagal mengirim testimoni. Coba lagi.");
     }
 
     setLoading(false);
@@ -49,6 +55,7 @@ function Testimoni() {
         </h2>
       </div>
 
+      {/* List testimoni */}
       <TestimoniList limit={10} direction="left" />
       <TestimoniList limit={10} direction="right" />
 

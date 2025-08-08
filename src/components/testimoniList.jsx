@@ -1,5 +1,4 @@
 import {useEffect, useState} from "react";
-import {supabase} from "../lib/supabaseClient";
 import {FaUserCircle} from "react-icons/fa";
 import "../testimoniList.css";
 
@@ -9,21 +8,15 @@ export default function TestimoniList({limit = 10, direction = "left"}) {
 
   useEffect(() => {
     const fetchTestimonials = async () => {
-      const {data: testimonials, error} = await supabase
-        .from("testimoni_app")
-        .select("*")
-        .order("id", {ascending: false})
-        .limit(limit);
-
-      if (error) {
-        console.error("Fetch error:", error);
-      } else {
+      try {
+        const res = await fetch(`/api/testimoni?limit=${limit}`);
+        const testimonials = await res.json();
         setData(testimonials);
+      } catch (error) {
+        console.error("Fetch error:", error);
       }
-
       setLoading(false);
     };
-
     fetchTestimonials();
   }, [limit]);
 
@@ -42,7 +35,7 @@ export default function TestimoniList({limit = 10, direction = "left"}) {
       >
         {marqueeItems.map((item, index) => (
           <div
-            key={index}
+            key={item._id + index} // _id + index agar unik
             className="marquee-item bg-gray-50 border shadow rounded-lg px-4 py-3 mx-2 min-w-[250px] max-w-xs transition transform hover:-translate-y-1 hover:shadow-lg active:scale-95 cursor-pointer"
           >
             <div className="flex items-center gap-2 mb-2 text-gray-800">
