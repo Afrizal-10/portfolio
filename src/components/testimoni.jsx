@@ -1,5 +1,5 @@
 import {useState, useEffect} from "react";
-import TestimoniList from "./testimoniList";
+import TestimoniList from "./TestimoniList";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import {alertError, alertSuccess} from "../lib/alert";
@@ -25,8 +25,8 @@ function Testimoni() {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({
-          name: nama, // <-- harus 'name'
-          message: isi, // <-- harus 'message'
+          name: nama, // harus 'name' supaya sesuai backend
+          message: isi, // harus 'message'
         }),
       });
 
