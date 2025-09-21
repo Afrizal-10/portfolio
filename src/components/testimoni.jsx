@@ -1,8 +1,8 @@
 import {useState, useEffect} from "react";
-import TestimoniList from "./TestimoniList";
 import AOS from "aos";
 import "aos/dist/aos.css";
 import {alertError, alertSuccess} from "../lib/alert";
+import TestimoniList from "./testimoniList";
 
 function Testimoni() {
   const [showForm, setShowForm] = useState(false);
@@ -25,8 +25,8 @@ function Testimoni() {
         method: "POST",
         headers: {"Content-Type": "application/json"},
         body: JSON.stringify({
-          name: nama, // harus 'name' supaya sesuai backend
-          message: isi, // harus 'message'
+          name: nama,
+          message: isi,
         }),
       });
 
