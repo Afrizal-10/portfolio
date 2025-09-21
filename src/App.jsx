@@ -1,5 +1,4 @@
 import {Routes, Route} from "react-router-dom";
-import Home from "./components/Home";
 import About from "./components/About";
 import Project from "./components/Project";
 import Testimoni from "./components/Testimoni";
@@ -16,6 +15,7 @@ import {
 
 import Dock from "./components/Dock/Dock";
 import VelocityAnimation from "./components/Velocity";
+import Home from "./components/home";
 
 function App() {
   const handleScrollTo = (id) => {
