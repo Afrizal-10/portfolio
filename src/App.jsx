@@ -1,10 +1,10 @@
 import {Routes, Route} from "react-router-dom";
-import Home from "./components/home";
-import About from "./components/about";
-import Project from "./components/project";
-import Testimoni from "./components/testimoni";
-import Contact from "./components/contact";
-import Footer from "./footer";
+import Home from "./components/Home";
+import About from "./components/About";
+import Project from "./components/Project";
+import Testimoni from "./components/Testimoni";
+import Contact from "./components/Contact";
+import Footer from "./Footer";
 
 import {
   VscHome,
@@ -15,7 +15,7 @@ import {
 } from "react-icons/vsc";
 
 import Dock from "./components/Dock/Dock";
-import VelocityAnimation from "./components/velocity";
+import VelocityAnimation from "./components/Velocity";
 
 function App() {
   const handleScrollTo = (id) => {
