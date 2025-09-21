@@ -9,13 +9,13 @@ import {
 } from "react-icons/vsc";
 
 import Dock from "./components/Dock/Dock";
-import VelocityAnimation from "./components/Velocity";
 import Home from "./components/home";
 import About from "./components/about";
 import Project from "./components/project";
 import Testimoni from "./components/testimoni";
 import Contact from "./components/contact";
 import Footer from "./footer";
+import VelocityAnimation from "./components/velocity";
 
 function App() {
   const handleScrollTo = (id) => {
