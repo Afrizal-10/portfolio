@@ -1,8 +1,8 @@
 import {useEffect, useState} from "react";
 import {FaInstagram, FaGithub, FaLinkedin, FaDiscord} from "react-icons/fa";
-import ContactForm from "./ContactForm";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import ContactForm from "./contactForm";
 
 function Contact() {
   const [activeTab, setActiveTab] = useState("contact");
