@@ -9,7 +9,6 @@ export default function TestimoniList({limit = 10, direction = "left"}) {
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
-        // Gunakan base URL dinamis via env atau langsung ke /api untuk development proxy
         const res = await fetch(`/api/testimoni?limit=${limit}`);
         const testimonials = await res.json();
         setData(testimonials);
@@ -36,7 +35,7 @@ export default function TestimoniList({limit = 10, direction = "left"}) {
       >
         {marqueeItems.map((item, index) => (
           <div
-            key={item._id + index} // unik dengan kombinasi _id + index
+            key={item._id + index}
             className="marquee-item bg-gray-50 border shadow rounded-lg px-4 py-3 mx-2 min-w-[250px] max-w-xs transition transform hover:-translate-y-1 hover:shadow-lg active:scale-95 cursor-pointer"
           >
             <div className="flex items-center gap-2 mb-2 text-gray-800">
