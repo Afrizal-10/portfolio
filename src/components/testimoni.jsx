@@ -3,6 +3,7 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import {alertError, alertSuccess} from "../lib/alert";
 import TestimoniList from "./testimoniList";
+import api from "../lib/api"; // ✅ pakai axios instance
 
 function Testimoni() {
   const [showForm, setShowForm] = useState(false);
@@ -21,23 +22,17 @@ function Testimoni() {
     setErrorMsg("");
 
     try {
-      const res = await fetch("/api/testimoni", {
-        method: "POST",
-        headers: {"Content-Type": "application/json"},
-        body: JSON.stringify({
-          name: nama,
-          message: isi,
-        }),
+      const res = await api.post("/testimoni", {
+        name: nama,
+        message: isi,
       });
 
-      if (!res.ok) {
-        throw new Error("Gagal mengirim testimoni");
+      if (res.status === 201) {
+        setNama("");
+        setIsi("");
+        setShowForm(false);
+        alertSuccess("Terkirim!", "Terima kasih atas testimoninya!");
       }
-
-      setNama("");
-      setIsi("");
-      setShowForm(false);
-      alertSuccess("Terkirim!", "Terima kasih atas testimoninya!");
     } catch (err) {
       console.error(err);
       setErrorMsg("Gagal mengirim testimoni. Coba lagi.");

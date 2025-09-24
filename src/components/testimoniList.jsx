@@ -1,6 +1,7 @@
 import {useEffect, useState} from "react";
 import {FaUserCircle} from "react-icons/fa";
 import "../testimoniList.css";
+import api from "../lib/api"; // ✅ axios instance
 
 export default function TestimoniList({limit = 10, direction = "left"}) {
   const [data, setData] = useState([]);
@@ -9,9 +10,9 @@ export default function TestimoniList({limit = 10, direction = "left"}) {
   useEffect(() => {
     const fetchTestimonials = async () => {
       try {
-        const res = await fetch(`/api/testimoni?limit=${limit}`);
-        const testimonials = await res.json();
-        setData(testimonials);
+        const res = await api.get(`/testimoni?limit=${limit}`);
+        // pastikan ambil array dari field data
+        setData(res.data.data || res.data);
       } catch (error) {
         console.error("Fetch error:", error);
       }
@@ -24,7 +25,7 @@ export default function TestimoniList({limit = 10, direction = "left"}) {
   if (!data || data.length === 0)
     return <p className="text-center">Belum ada testimoni.</p>;
 
-  const marqueeItems = [...data, ...data];
+  const marqueeItems = data;
 
   return (
     <div className="overflow-hidden py-4">

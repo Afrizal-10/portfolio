@@ -4,9 +4,7 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
-    "dev": "concurrently \"npm run dev-client\" \"npm run dev-server\"",
-    "dev-client": "vite",
-    "dev-server": "node server.js",
+    "dev": "vite",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
@@ -22,7 +20,7 @@
     "@supabase/supabase-js": "^2.50.5",
     "@tailwindcss/vite": "^4.1.11",
     "aos": "^2.3.4",
-    "axios": "^1.11.0",
+    "axios": "^1.12.2",
     "bootstrap": "^5.3.6",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

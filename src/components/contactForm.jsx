@@ -41,7 +41,7 @@ export default function ContactForm() {
         </label>
         <input
           type="text"
-          name="user_name"
+          name="name"
           className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-gray-800"
           placeholder="Nama lengkap"
           required
@@ -54,7 +54,7 @@ export default function ContactForm() {
         </label>
         <input
           type="email"
-          name="user_email"
+          name="email"
           className="w-full border border-gray-300 rounded-md p-2 focus:outline-none focus:ring-2 focus:ring-gray-800"
           placeholder="email@example.com"
           required
