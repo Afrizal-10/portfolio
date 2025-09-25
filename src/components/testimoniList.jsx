@@ -1,7 +1,7 @@
 import {useEffect, useState} from "react";
 import {FaUserCircle} from "react-icons/fa";
 import "../testimoniList.css";
-import api from "../lib/api"; // ✅ axios instance
+import api from "../lib/api";
 
 export default function TestimoniList({limit = 10, direction = "left"}) {
   const [data, setData] = useState([]);
@@ -11,7 +11,6 @@ export default function TestimoniList({limit = 10, direction = "left"}) {
     const fetchTestimonials = async () => {
       try {
         const res = await api.get(`/testimoni?limit=${limit}`);
-        // pastikan ambil array dari field data
         setData(res.data.data || res.data);
       } catch (error) {
         console.error("Fetch error:", error);
